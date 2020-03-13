@@ -2,7 +2,7 @@
 
 class TasksController < ApplicationController
   def index
-    @tasks = ['Task 1', 'Task 2', 'Task 3']
+    @tasks = Task.all
   end
 
   def new
@@ -18,4 +18,11 @@ class TasksController < ApplicationController
 
     redirect_to '/tasks'
   end
+
+  def show
+    @task = Task.find(params[:id])
+  end
+
+  def edit
+    @task = Task.find(params[:id])
 end
